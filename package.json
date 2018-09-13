@@ -1,0 +1,22 @@
+{
+  "name": "edoran-project",
+  "version": "1.0.0",
+  "description": "Part one of oregon trail project",
+  "main": "oregonTrail.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaristGormanly/edoran-project.git"
+  },
+  "keywords": [
+    "npm"
+  ],
+  "author": "Emily Doran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaristGormanly/edoran-project/issues"
+  },
+  "homepage": "https://github.com/MaristGormanly/edoran-project#readme"
+}
