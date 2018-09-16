@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/MaristGormanly/edoran-project/issues"
   },
-  "homepage": "https://github.com/MaristGormanly/edoran-project#readme"
+  "homepage": "https://github.com/MaristGormanly/edoran-project#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
