@@ -1,0 +1,38 @@
+body{
+  background: #ffff99;
+  font-family: "Courier New", Courier, monospace;
+}
+
+img{
+  width: 80%;
+  height: 60%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.titleimage{
+  position: relative;
+  width: 80%;
+  left: 10%;
+}
+
+.menutitles{
+  font-size: 150%;
+  color: #000066;
+  width: 100%;
+  height: 20%;
+  text-align: center;
+}
+
+td,th,p{
+  color: #2eb8b8;
+  font-size: 150%;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.table{
+  position: relative;
+  left: 15%;
+}
