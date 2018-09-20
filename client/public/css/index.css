@@ -1,0 +1,23 @@
+body{
+  font-family: "Courier New", Courier, monospace
+}
+img{
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h3{
+  opacity: 0.75;
+}
+
+.titles{
+  color: white;
+  position: absolute;
+  text-align: center;
+  width: 80%;
+  height: 5%;
+  left: 10%;
+  bottom: 90%;
+}
