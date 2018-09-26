@@ -6,3 +6,8 @@ function blink_text() {
 }
 
 setInterval(blink_text, 1000);
+
+var spacebarToContinue = document.getElementById('spacebarToContinue');
+spacebarToContinue.onclick = function(){
+  location.href = '/mainmenu';
+}

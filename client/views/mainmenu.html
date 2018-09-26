@@ -1,13 +1,12 @@
 <!doctype html>
 <html>
   <head>
-    <script src = "/js/global.js"></script>
-    <script src = "/js/mainmenu.js"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <link rel="stylesheet" type="text/css" href="/css/mainmenu.css">
   </head>
   <body>
+    <audio src = "/music/Lightsun.mp3" id = "audio" loop></audio>
     <div class = "titleimage">
       <img src = "/images/titleimg.png" />
     </div>
@@ -26,10 +25,10 @@
 
     <div class = "list">
       <ol>
-        <li>Travel the Trail</li>
+        <li  id = "travelTrail">Travel the Trail</li>
         <li>Learn About the Trail</li>
-        <li>See the Oregon Top 10</li>
-        <li>Turn Sound (On/Off)</li>
+        <li id = "topTen">See the Oregon Top 10</li>
+        <li id = "sound">Turn Sound On</li>
       </ol>
 
       <br>
@@ -37,5 +36,7 @@
       <p>Select an Option</p>
     </div>
 
+    <script src = "/js/mainmenu.js"></script>
+    <script src = "/js/global.js"></script>
   </body>
 </html>
