@@ -1,5 +1,8 @@
 var spacebarForMenu = document.getElementById('spacebarForMenu');
+var audio = document.getElementById("audio");
+
 spacebarForMenu.onclick = function(){
+  sessionStorage.setItem("time", audio.currentTime)
   location.href = '/mainmenu';
 }
 
@@ -17,16 +20,16 @@ function addScore(name, score, date){
   topScores.push(s);
 }
 
-addScore('Emily', 0, '12/12/18');
-addScore('Jack', 10000, '12/12/18');
-addScore('Allie', 3, '12/12/18');
-addScore('Erin', 70, '12/12/18');
-addScore('Nick', 50, '12/12/18');
+addScore('Emily', 0, '1/7/13');
+addScore('Jack', 10000, '2/14/18');
+addScore('Allie', 3, '6/22/17');
+addScore('Erin', 70, '10/1/18');
+addScore('Nick', 50, '5/14/17');
 addScore('Jim', 100, '1/2/2013');
 addScore('Tom', 200, '1/19/2016');
-addScore('Sarah', 30000, '12/12/18');
-addScore('Karl', 7, '12/12/18');
-addScore('Kevin', 55, '12/12/18');
+addScore('Sarah', 30000, '10/8/14');
+addScore('Karl', 7, '9/12/18');
+addScore('Kevin', 55, '7/31/16');
 addScore('Maria', 1, '1/2/2013');
 addScore('Ed', 200, '1/19/2016');
 
@@ -53,11 +56,15 @@ function swap(array, firstIndex, secondIndex){
 
 sort(topScores);
 
-for(var i = 0; i < topScores.length; i++){
-  var nameId = 'name' + (i + 1);
-  var scoreId = 'score' + (i + 1);
-  var dateId = 'date' + (i + 1);
-  document.getElementById(nameId).innerHTML = topScores[i].name;
-  document.getElementById(scoreId).innerHTML = topScores[i].score;
-  document.getElementById(dateId).innerHTML = topScores[i].date;
+printTopTen(topScores);
+
+function printTopTen(array){
+  for(var i = 0; i < array.length; i++){
+    var nameId = 'name' + (i + 1);
+    var scoreId = 'score' + (i + 1);
+    var dateId = 'date' + (i + 1);
+    document.getElementById(nameId).innerHTML = array[i].name;
+    document.getElementById(scoreId).innerHTML = array[i].score;
+    document.getElementById(dateId).innerHTML = array[i].date;
+  }
 }
