@@ -31,3 +31,7 @@ td,th,p{
   position: relative;
   left: 15%;
 }
+
+#sound{
+  color: #ffff99;
+}
