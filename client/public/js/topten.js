@@ -20,14 +20,14 @@ function addScore(name, score, date){
   topScores.push(s);
 }
 
-addScore('Emily', 0, '1/7/13');
+addScore('Emily', 3500, '1/7/13');
 addScore('Jack', 10000, '2/14/18');
 addScore('Allie', 3, '6/22/17');
 addScore('Erin', 70, '10/1/18');
 addScore('Nick', 50, '5/14/17');
 addScore('Jim', 100, '1/2/2013');
 addScore('Tom', 200, '1/19/2016');
-addScore('Sarah', 30000, '10/8/14');
+addScore('Sarah', 0, '10/8/14');
 addScore('Karl', 7, '9/12/18');
 addScore('Kevin', 55, '7/31/16');
 addScore('Maria', 1, '1/2/2013');
