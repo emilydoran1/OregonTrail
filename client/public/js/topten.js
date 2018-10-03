@@ -59,12 +59,24 @@ sort(topScores);
 printTopTen(topScores);
 
 function printTopTen(array){
-  for(var i = 0; i < array.length; i++){
-    var nameId = 'name' + (i + 1);
-    var scoreId = 'score' + (i + 1);
-    var dateId = 'date' + (i + 1);
-    document.getElementById(nameId).innerHTML = array[i].name;
-    document.getElementById(scoreId).innerHTML = array[i].score;
-    document.getElementById(dateId).innerHTML = array[i].date;
+  if(array.length > 10){
+    for(var i = 0; i < 10; i++){
+      var nameId = 'name' + (i + 1);
+      var scoreId = 'score' + (i + 1);
+      var dateId = 'date' + (i + 1);
+      document.getElementById(nameId).innerHTML = array[i].name;
+      document.getElementById(scoreId).innerHTML = array[i].score;
+      document.getElementById(dateId).innerHTML = array[i].date;
+    }
+  }
+  else{
+    for(var i = 0; i < array.length; i++){
+      var nameId = 'name' + (i + 1);
+      var scoreId = 'score' + (i + 1);
+      var dateId = 'date' + (i + 1);
+      document.getElementById(nameId).innerHTML = array[i].name;
+      document.getElementById(scoreId).innerHTML = array[i].score;
+      document.getElementById(dateId).innerHTML = array[i].date;
+    }
   }
 }
