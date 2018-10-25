@@ -20,18 +20,18 @@ function addScore(name, score, date){
   topScores.push(s);
 }
 
-addScore('Emily', 3500, '1/7/13');
-addScore('Jack', 10000, '2/14/18');
-addScore('Allie', 3, '6/22/17');
+addScore('Emily', 3500, '01/7/13');
+addScore('Jack', 10000, '02/14/18');
+addScore('Allie', 3, '06/22/17');
 addScore('Erin', 70, '10/1/18');
-addScore('Nick', 50, '5/14/17');
-addScore('Jim', 100, '1/2/2013');
-addScore('Tom', 200, '1/19/2016');
+addScore('Nick', 50, '05/14/17');
+addScore('Jim', 100, '01/2/2013');
+addScore('Tom', 200, '01/19/2016');
 addScore('Sarah', 0, '10/8/14');
-addScore('Karl', 7, '9/12/18');
-addScore('Kevin', 55, '7/31/16');
-addScore('Maria', 1, '1/2/2013');
-addScore('Ed', 200, '1/19/2016');
+addScore('Karl', 7, '09/12/18');
+addScore('Kevin', 55, '07/31/16');
+addScore('Maria', 1, '01/2/2013');
+addScore('Ed', 200, '01/19/2016');
 
 function sort(array){
   var min;

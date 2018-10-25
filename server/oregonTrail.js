@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 const port = 1337
+var bodyParser = require('body-parser');
+app.use(bodyParser.json({type:'application/json'}));
 
 app.use(express.static('client/public'));
 
@@ -24,4 +26,24 @@ app.get('/trail', function(req, res){
   res.sendFile('trail.html', {root: './client/views'})
 })
 
-app.listen(port, () => console.log('OregonTrail is running!'))
+var topTenController = require('./controllers/topTenController');
+app.route('/api/topTen/topTen')
+  .get(topTenController.getCurrentScores);
+
+var paceController = require('./models/pace');
+app.route('/api/game/pace')
+  .get(paceController.getAllPaces);
+
+var terrainController = require('./models/terrain');
+app.route('/api/game/terrain')
+  .get(terrainController.getAllTerrains);
+
+var weatherController = require('./models/weather');
+app.route('/api/game/weather')
+  .get(weatherController.getAllWeathers);
+
+var gameController = require('./controllers/gameController');
+app.route('/api/game/gameData')
+  .get(gameController.getGameData);
+
+app.listen(port, () => console.log('OregonTrail is running!'));
