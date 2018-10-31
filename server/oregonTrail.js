@@ -30,20 +30,18 @@ var topTenController = require('./controllers/topTenController');
 app.route('/api/topTen/topTen')
   .get(topTenController.getCurrentScores);
 
-var paceController = require('./models/pace');
-app.route('/api/game/pace')
-  .get(paceController.getAllPaces);
-
-var terrainController = require('./models/terrain');
-app.route('/api/game/terrain')
-  .get(terrainController.getAllTerrains);
-
-var weatherController = require('./models/weather');
-app.route('/api/game/weather')
-  .get(weatherController.getAllWeathers);
-
 var gameController = require('./controllers/gameController');
-app.route('/api/game/gameData')
-  .get(gameController.getGameData);
+app.route('/api/game/nextDay')
+  .get(gameController.nextDay);
+
+app.route('/api/game/reset')
+  .get(gameController.reset);
+
+app.route('/api/game/setPace/:id')
+  .post(gameController.setPace);
+
+var getPaces = require('./models/pace');
+app.route('/api/game/allPaces')
+  .get(getPaces.getAllPaces);
 
 app.listen(port, () => console.log('OregonTrail is running!'));
