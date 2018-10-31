@@ -4,24 +4,13 @@ function pace(inPaceName, inMiles, inHealthChange){
   this.healthChange = inHealthChange;
 }
 
-exports.setPace = function(inPaceName, inMiles, inHealthChange){
-  var playerPace = new pace(inPaceName, inMiles, inHealthChange);
-  return playerPace;
-}
+exports.allPaces = [];
+exports.allPaces.push(new pace('Steady', 20, 0));
+exports.allPaces.push(new pace('Strenuous', 30, -3));
+exports.allPaces.push(new pace('Grueling', 35, -8));
+exports.allPaces.push(new pace('Resting', 0, 5));
 
-//var pace = require('../models/pace');
-
-allPaces = [];
-allPaces.push(new pace('Steady', 20, 0));
-allPaces.push(new pace('Strenuous', 30, -3));
-allPaces.push(new pace('Grueling', 35, -8));
-allPaces.push(new pace('Resting', 0, 5));
-
-exports.getAllPaces = function(){
-  return(allPaces);
-}
-
-/*exports.getPace = function(req, res){
+exports.getAllPaces = function(req, res){
   res.setHeader('Content-Type', 'application/json');
-  res.send(paces);
-}*/
+  res.send(exports.allPaces);
+}

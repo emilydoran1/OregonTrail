@@ -6,13 +6,6 @@ function weather(inId, inType, inHealthChange, inMileChange, inProbability){
   this.probability = inProbability;
 }
 
-/*setWeather = function(nId, inType, inHealthChange, inMileChange, inProbability){
-  var gameWeather = new weather(nId, inType, inHealthChange, inMileChange, inProbability);
-  return gameWeather;
-}*/
-
-// var weather = require('../models/weather');
-
 allWeathers = [];
 allWeathers.push(new weather(1, 'Very Hot', -8, .7, .1));
 allWeathers.push(new weather(2, 'Hot', -3, .9, .1));
@@ -30,7 +23,31 @@ exports.getAllWeathers = function(){
   return(allWeathers);
 }
 
-/*exports.getWeather = function(req, res){
-  res.setHeader('Content-Type', 'application/json');
-  res.send(weathers);
-}*/
+exports.getRandomWeather = function(){
+  var randNum = Math.floor((Math.random() * 100) + 1);
+  var weather;
+  if(randNum <= 10)
+    weather = allWeathers[0];
+  else if(randNum > 10 && randNum <= 20)
+    weather = allWeathers[1];
+  else if(randNum > 20 && randNum <= 40)
+    weather = allWeathers[2];
+  else if(randNum > 40 && randNum <= 50)
+    weather = allWeathers[3];
+  else if(randNum > 50 && randNum <= 60)
+    weather = allWeathers[4];
+  else if(randNum > 60 && randNum <= 70)
+    weather = allWeathers[5];
+  else if(randNum > 70 && randNum <= 80)
+    weather = allWeathers[6];
+  else if(randNum > 80 && randNum <= 85)
+    weather = allWeathers[7];
+  else if(randNum > 85 && randNum <= 90)
+    weather = allWeathers[8];
+  else if(randNum > 90 && randNum <= 95)
+    weather = allWeathers[9];
+  else if(randNum > 95 && randNum <= 100)
+    weather = allWeathers[10];
+
+  return weather;
+}
