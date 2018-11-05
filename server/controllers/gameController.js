@@ -3,7 +3,7 @@ var pace = require('../models/pace');
 var terrain = require('../models/terrain');
 var weather = require('../models/weather');
 
-var data = gameData.addData();
+data = gameData.addData();
 
 function setRandomPlayerStatus(){
   if(data.groupHealth >= 20 && data.groupHealth < 50){
@@ -69,4 +69,8 @@ exports.setPace = function(req, res){
   var newPace = pace.allPaces[req.params.id];
   res.setHeader('Content-Type', 'application/json');
 	res.send(newPace);
+}
+
+exports.getGameData = function(){
+  return data;
 }
