@@ -37,7 +37,7 @@ function setRandomPlayerStatus(){
 function getNumAlive(){
   var count = 0;
   for(var i = 0; i < playerStatus.length; i++){
-    if(playerStatus[i] == 'alive'){
+    if(playerStatus[i] == true){
       count++;
     }
   }

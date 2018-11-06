@@ -45,16 +45,17 @@ app.route('/api/game/allPaces')
   .get(getPaces.getAllPaces);
 
 var setupController = require('./controllers/setupController');
+
 app.route('/api/setup/getScreen/:id')
   .get(setupController.getScreen);
 
-app.route('/api/setup/saveProfession')
+app.route('/api/setup/saveProfession/:profession')
   .post(setupController.saveProfession);
 
-app.route('/api/setup/savePlayerName')
+app.route('/api/setup/savePlayerName/:name')
   .post(setupController.savePlayerName);
 
-app.route('/api/setup/saveStartMonth')
+app.route('/api/setup/saveStartMonth/:month')
   .post(setupController.saveStartMonth);
 
 app.listen(port, () => console.log('OregonTrail is running!'));
