@@ -27,10 +27,13 @@ app.get('/trail', function(req, res){
 })
 
 var topTenController = require('./controllers/topTenController');
+
 app.route('/api/topTen/topTen')
   .get(topTenController.getCurrentScores);
+  
 
 var gameController = require('./controllers/gameController');
+
 app.route('/api/game/nextDay')
   .get(gameController.nextDay);
 
@@ -44,9 +47,10 @@ var getPaces = require('./models/pace');
 app.route('/api/game/allPaces')
   .get(getPaces.getAllPaces);
 
+
 var setupController = require('./controllers/setupController');
 
-app.route('/api/setup/getScreen/:id')
+app.route('/api/setup/getScreen/:screen')
   .get(setupController.getScreen);
 
 app.route('/api/setup/saveProfession/:profession')
