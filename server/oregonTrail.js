@@ -27,10 +27,13 @@ app.get('/trail', function(req, res){
 })
 
 var topTenController = require('./controllers/topTenController');
+
 app.route('/api/topTen/topTen')
   .get(topTenController.getCurrentScores);
+  
 
 var gameController = require('./controllers/gameController');
+
 app.route('/api/game/nextDay')
   .get(gameController.nextDay);
 
@@ -44,17 +47,19 @@ var getPaces = require('./models/pace');
 app.route('/api/game/allPaces')
   .get(getPaces.getAllPaces);
 
+
 var setupController = require('./controllers/setupController');
-app.route('/api/setup/getScreen/:id')
+
+app.route('/api/setup/getScreen/:screen')
   .get(setupController.getScreen);
 
-app.route('/api/setup/saveProfession')
+app.route('/api/setup/saveProfession/:profession')
   .post(setupController.saveProfession);
 
-app.route('/api/setup/savePlayerName')
+app.route('/api/setup/savePlayerName/:name')
   .post(setupController.savePlayerName);
 
-app.route('/api/setup/saveStartMonth')
+app.route('/api/setup/saveStartMonth/:month')
   .post(setupController.saveStartMonth);
 
 app.listen(port, () => console.log('OregonTrail is running!'));
