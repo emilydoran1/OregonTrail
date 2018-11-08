@@ -27,7 +27,7 @@ function setRandomPlayerStatus(req, res){
     }
   }
 
-  if(data.groupHealth <= 0){
+  if(data.groupHealth <= 0 || data.playerStatus == [false,false,false,false,false]){
     data.playerStatus = [false,false,false,false,false];
     data.messages.push('All players are dead.');
     exports.reset(req, res);

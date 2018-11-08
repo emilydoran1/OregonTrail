@@ -10,7 +10,7 @@ exports.currentTopScores.push(topTen.addScore('Jim', 100, '01/2/2013'));
 exports.currentTopScores.push(topTen.addScore('Sarah', 0, '10/8/14'));
 exports.currentTopScores.push(topTen.addScore('Kevin', 55, '07/31/16'));
 exports.currentTopScores.push(topTen.addScore('Maria', 1, '01/2/2013'));
-exports.currentTopScores.push(topTen.addScore('Ed', 200, '01/19/2016'));
+exports.currentTopScores.push(topTen.addScore('Mike', 200, '01/19/2016'));
 
 exports.getCurrentScores = function(req, res){
   res.setHeader('Content-Type', 'application/json');

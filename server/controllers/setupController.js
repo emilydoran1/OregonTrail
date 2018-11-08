@@ -1,7 +1,8 @@
 var gameData = require('../models/gameData');
 var gameController = require('../controllers/gameController');
 
-var gameScreens = ['Screen 1', 'Screen 2', 'Screen 3', 'Screen 4'];
+var gameScreens = ['Main Menu', 'Choose Profession', 'Leader Name', 'Other Names',
+  'Month', 'Selections', 'Trail'];
 
 exports.getScreen = function(req, res){
   var gameScreen = gameScreens[req.params.screen];
