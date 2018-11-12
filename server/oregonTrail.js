@@ -59,7 +59,7 @@ app.route('/api/setup/saveProfession')
 app.route('/api/setup/savePlayerName/:id')
   .post(setupController.savePlayerName);
 
-app.route('/api/setup/saveStartMonth/:month')
+app.route('/api/setup/saveStartMonth')
   .post(setupController.saveStartMonth);
 
 app.listen(port, () => console.log('OregonTrail is running!'));

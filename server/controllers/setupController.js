@@ -27,7 +27,7 @@ exports.savePlayerName = function(req, res){
 
 exports.saveStartMonth = function(req, res){
   //var month = req.body.month;
-	gameController.getGameData().startMonth = req.params.month;
+	gameController.getGameData().startMonth = req.body.month;
 	res.setHeader('Content-Type', 'application/json');
 	res.send(gameController.getGameData().startMonth);
 }
