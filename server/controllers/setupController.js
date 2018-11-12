@@ -1,4 +1,3 @@
-var gameData = require('../models/gameData');
 var gameController = require('../controllers/gameController');
 
 var gameScreens = ['Main Menu', 'Choose Profession', 'Leader Name', 'Other Names',
@@ -11,8 +10,6 @@ exports.getScreen = function(req, res){
 }
 
 exports.saveProfession = function(req, res){
-  //var profession = req.body.profession;
-	//gameController.getGameData().playerProfession = req.params.profession;
   gameController.getGameData().playerProfession = req.body.profession;
 	res.setHeader('Content-Type', 'application/json');
 	res.send(gameController.getGameData().playerProfession);
@@ -26,7 +23,6 @@ exports.savePlayerName = function(req, res){
 }
 
 exports.saveStartMonth = function(req, res){
-  //var month = req.body.month;
 	gameController.getGameData().startMonth = req.body.month;
 	res.setHeader('Content-Type', 'application/json');
 	res.send(gameController.getGameData().startMonth);
