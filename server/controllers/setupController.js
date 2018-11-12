@@ -12,14 +12,15 @@ exports.getScreen = function(req, res){
 
 exports.saveProfession = function(req, res){
   //var profession = req.body.profession;
-	gameController.getGameData().playerProfession = req.params.profession;
+	//gameController.getGameData().playerProfession = req.params.profession;
+  gameController.getGameData().playerProfession = req.body.profession;
 	res.setHeader('Content-Type', 'application/json');
 	res.send(gameController.getGameData().playerProfession);
 }
 
 exports.savePlayerName = function(req, res){
-  var newName = req.params.name;
-	gameController.getGameData().playerNames.push(newName);
+  var newName = req.body.name;
+	gameController.getGameData().playerNames[req.params.id] = newName;
 	res.setHeader('Content-Type', 'application/json');
 	res.send(gameController.getGameData().playerNames);
 }

@@ -60,8 +60,8 @@ function checkDaysAndMiles(req, res){
 
 exports.nextDay = function(req, res){
   checkDaysAndMiles(req, res);
-  data.milesTraveled += (data.currentPace.miles * data.currentWeather.mileChange);
   data.currentWeather = weather.getRandomWeather();
+  data.milesTraveled += (data.currentPace.miles * data.currentWeather.mileChange);
   data.groupHealth += (data.currentPace.healthChange + data.currentWeather.healthChange);
   data.playerStatus = setRandomPlayerStatus(req, res);
   data.currentTerrain = terrain.getRandomTerrain();
