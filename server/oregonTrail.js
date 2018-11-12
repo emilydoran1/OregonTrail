@@ -30,7 +30,7 @@ var topTenController = require('./controllers/topTenController');
 
 app.route('/api/topTen/topTen')
   .get(topTenController.getCurrentScores);
-  
+
 
 var gameController = require('./controllers/gameController');
 
@@ -53,10 +53,10 @@ var setupController = require('./controllers/setupController');
 app.route('/api/setup/getScreen/:screen')
   .get(setupController.getScreen);
 
-app.route('/api/setup/saveProfession/:profession')
+app.route('/api/setup/saveProfession')
   .post(setupController.saveProfession);
 
-app.route('/api/setup/savePlayerName/:name')
+app.route('/api/setup/savePlayerName/:id')
   .post(setupController.savePlayerName);
 
 app.route('/api/setup/saveStartMonth/:month')
