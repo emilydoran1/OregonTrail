@@ -50,7 +50,7 @@ app.route('/api/game/allPaces')
 
 var setupController = require('./controllers/setupController');
 
-app.route('/api/setup/getScreen/:screen')
+app.route('/api/setup/getScreen/:id')
   .get(setupController.getScreen);
 
 app.route('/api/setup/saveProfession')

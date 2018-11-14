@@ -3,10 +3,10 @@ var currentScreen = 0;
 var spacebarForMenu = document.getElementById('spacebarForMenu');
 var audio = document.getElementById("audio");
 
-spacebarForMenu.onclick = function(){
+/*spacebarForMenu.onclick = function(){
   sessionStorage.setItem("time", audio.currentTime)
   location.href = '/mainmenu';
-}
+}*/
 
 function gameScreen(screenNumber){
   if(screenNumber){
@@ -23,9 +23,9 @@ function gameScreen(screenNumber){
 
     response.text().then(function(data){
       //get the returned data add to the dom
-      gameContainer.innerHTML = fetch;
+      gameContainer.innerHTML = data;
     })
   })
 }
 
-gameScreen(0);
+gameScreen(4);
