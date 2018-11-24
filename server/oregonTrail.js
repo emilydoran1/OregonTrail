@@ -29,7 +29,7 @@ app.get('/trail', function(req, res){
 var topTenController = require('./controllers/topTenController');
 
 app.route('/api/topTen/topTen')
-  .get(topTenController.getCurrentScores);
+  .get(topTenController.getTopScores);
 
 
 var gameController = require('./controllers/gameController');
