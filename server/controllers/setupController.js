@@ -38,9 +38,9 @@ var startGame1 = "<ol>"
 
 var startGame2 = "<p>What is the first name of the wagon leader?</p>"
   + "<form>"
-  + "FirstName: <input type = \"text\" name = \"name\">"
+  + "First Name: <input type = \"text\" name = \"name\">"
+  + "  " + "<button>Next</button>";
   + "</form>"
-  + "<button>Next</button>";
 
 var startGame3 = "<p>What are the first names of the other members of your party?</p>"
   + "<form>"

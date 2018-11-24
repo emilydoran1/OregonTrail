@@ -35,3 +35,16 @@ li{
 #sound{
   color: #ffff99;
 }
+
+button{
+  font-size: 18px;
+  font-family: "Courier New", Courier, monospace;
+  width: 60px;
+  height: 40px;
+  background-color:  #00ccff;
+  color: white;
+}
+
+button:hover{
+  opacity: 0.75;
+}
