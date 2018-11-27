@@ -28,9 +28,9 @@ exports.saveStartMonth = function(req, res){
 }
 
 var startGame1 = "<ol>"
-  + "<li>Be a Banker From Boston</li>"
-  + "<li>Be a Carpenter From Ohio</li>"
-  + "<li>Be a Farmer From Illinois</li>"
+  + "<li id = \"banker\">Be a Banker From Boston</li>"
+  + "<li id = \"carpenter\">Be a Carpenter From Ohio</li>"
+  + "<li id = \"farmer\">Be a Farmer From Illinois</li>"
   + "<li>Find Out the Differences Between the Choices</li>"
   + "</ol>"
   + "<br>"
@@ -38,31 +38,35 @@ var startGame1 = "<ol>"
 
 var startGame2 = "<p>What is the first name of the wagon leader?</p>"
   + "<form>"
-  + "First Name: <input type = \"text\" name = \"name\">"
-  + "  " + "<button>Next</button>";
+  + "First Name: <input type = \"text\" name = \"name\" id = \"player1\">"
   + "</form>"
+  + "<br>"
+  + "<button id = \"page2\">Next</button>";
 
 var startGame3 = "<p>What are the first names of the other members of your party?</p>"
   + "<form>"
-  + "Player Name: <input type = \"text\" name = \"name\">"
+  + "Player Name: <input type = \"text\" name = \"name\" id = \"player2\">"
   + "<br>"
-  + "Player Name: <input type = \"text\" name = \"name\">"
   + "<br>"
-  + "Player Name: <input type = \"text\" name = \"name\">"
+  + "Player Name: <input type = \"text\" name = \"name\" id = \"player3\">"
   + "<br>"
-  + "Player Name: <input type = \"text\" name = \"name\">"
+  + "<br>"
+  + "Player Name: <input type = \"text\" name = \"name\" id = \"player4\">"
+  + "<br>"
+  + "<br>"
+  + "Player Name: <input type = \"text\" name = \"name\" id = \"player5\">"
   + "</form>"
   + "<br>"
-  + "<button>Next</button>";
+  + "<button id = \"page3\">Next</button>";
 
 var startGame4 = "<p>It is 2018. Your jumping off place for oregon is Poughkeepsie,"
   + "New York. You must decide which month to leave. </p>"
   + "<ol>"
-  + "<li>March</li>"
-  + "<li>April</li>"
-  + "<li>May</li>"
-  + "<li>June</li>"
-  + "<li>July</li>"
+  + "<li id = \"march\">March</li>"
+  + "<li id = \"april\">April</li>"
+  + "<li id = \"may\">May</li>"
+  + "<li id = \"june\">June</li>"
+  + "<li id = \"july\">July</li>"
   + "</ol>"
   + "<p>What is your choice?</p>";
 
@@ -76,7 +80,7 @@ var startGame5 = "<p>Congratulations! You are ready to start on your journey!</p
   + "<p>Your Profession: </p>"
   + "<p>Current Bank Account: </p>"
   + "<p>Month Leaving: </p>"
-  + "<b><p id = \"spacebarForMenu\">  Press the Space For the Main Menu.</p></b>";
+  + "<b><p id = \"trail\">  Press the Space To Travel The Trail!</p></b>";
 
 gameScreens.push(startGame1);
 gameScreens.push(startGame2);
