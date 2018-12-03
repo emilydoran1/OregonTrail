@@ -27,6 +27,12 @@ exports.saveStartMonth = function(req, res){
 	res.send(gameController.getGameData().startMonth);
 }
 
+exports.saveMoney = function(req, res){
+	gameController.getGameData().playerMoney = req.body.money;
+	res.setHeader('Content-Type', 'application/json');
+	res.send(gameController.getGameData().playerMoney);
+}
+
 var startGame1 = "<ol>"
   + "<li id = \"banker\">Be a Banker From Boston</li>"
   + "<li id = \"carpenter\">Be a Carpenter From Ohio</li>"
@@ -60,7 +66,7 @@ var startGame3 = "<p>What are the first names of the other members of your party
   + "<button id = \"page3\">Next</button>";
 
 var startGame4 = "<p>It is 2018. Your jumping off place for oregon is Poughkeepsie,"
-  + "New York. You must decide which month to leave. </p>"
+  + " New York. You must decide which month to leave. </p>"
   + "<ol>"
   + "<li id = \"march\">March</li>"
   + "<li id = \"april\">April</li>"
@@ -72,14 +78,37 @@ var startGame4 = "<p>It is 2018. Your jumping off place for oregon is Poughkeeps
 
 var startGame5 = "<p>Congratulations! You are ready to start on your journey!</p>"
   + "<p>Here are the settings you selected for the game</p>"
-  + "<p>Wagon Leader: </p>"
-  + "<p>Member: </p>"
-  + "<p>Member: </p>"
-  + "<p>Member: </p>"
-  + "<p>Member: </p>"
-  + "<p>Your Profession: </p>"
-  + "<p>Current Bank Account: </p>"
-  + "<p>Month Leaving: </p>"
+  + "<span>Wagon Leader: </span>"
+  + "<span id = \"p1Name\"></span>"
+  + "<br>"
+  + "<br>"
+  + "<span>Member: </span>"
+  + "<span id = \"p2Name\"></span>"
+  + "<br>"
+  + "<br>"
+  + "<span>Member: </span>"
+  + "<span id = \"p3Name\"></span>"
+  + "<br>"
+  + "<br>"
+  + "<span>Member: </span>"
+  + "<span id = \"p4Name\"></span>"
+  + "<br>"
+  + "<br>"
+  + "<span>Member: </span>"
+  + "<span id = \"p5Name\"></span>"
+  + "<br>"
+  + "<br>"
+  + "<span>Your Profession: </span>"
+  + "<span id = \"pProfession\"></span>"
+  + "<br>"
+  + "<br>"
+  + "<span>Current Bank Account: </span>"
+  + "<span id = \"pMoney\"></span>"
+  + "<br>"
+  + "<br>"
+  + "<span>Month Leaving: </span>"
+  + "<span id = \"pMonth\"></span>"
+
   + "<b><p id = \"trail\">  Press the Space To Travel The Trail!</p></b>";
 
 gameScreens.push(startGame1);

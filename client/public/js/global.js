@@ -3,8 +3,14 @@ window.addEventListener("keydown", checkKeyPressed, false);
 var audio = document.getElementById("audio");
 
 function checkKeyPressed(e) {
-  if (e.keyCode == "32") {
+  if (e.keyCode == "32" && (window.location != 'http://localhost:1337/') &&
+  (window.location.href != 'http://localhost:1337/setup') &&
+  (window.location.href != 'http://localhost:1337/trail')) {
     sessionStorage.setItem("time", audio.currentTime)
+    window.location.href = "/mainmenu";
+  }
+  if (e.keyCode == "32" && (window.location.href == 'http://localhost:1337/')) {
+    // sessionStorage.setItem("time", audio.currentTime)
     window.location.href = "/mainmenu";
   }
 }
@@ -33,7 +39,7 @@ function soundOn() {
   }
 }
 
-if (sessionStorage.getItem("audioOn") == "True") {
+if (sessionStorage.getItem("audioOn") == "True" && (window.location.href != 'http://localhost:1337/')) {
   //var audio = document.getElementById("audio");
   audio.currentTime = sessionStorage.getItem("time");
   document.getElementById("sound").innerHTML = sessionStorage.getItem("soundString");

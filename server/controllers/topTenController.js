@@ -33,7 +33,7 @@ con.connect(function(err){
 exports.getTopScores = function(req, res){
   var currentTopScores = [];
 
-  var sql = 'select playerName, playerScore, dateEarned from topTen;';
+  var sql = 'select playerName, playerScore, dateEarned from topTen';
   con.query(sql, function(err, rows, fields) {
     if(err) throw err;
     for(var i = 0; i < rows.length; i++){
@@ -46,7 +46,17 @@ exports.getTopScores = function(req, res){
 }
 
 exports.saveTopScore = function(req, res){
+  // var sql = 'insert into topTen (playerName, playerScore, dateEarned) values '
+  //   + '(' + req.body.playerName + ',' + req.body.playerScore + ',' + req.body.dateEarned + ')';
+  var sql = 'insert into topTen (playerName, playerScore) values '
+    + '(' + req.body.playerName + ',' + req.body.playerScore + ')';
+  con.query(sql, function(err, result){
+    if(err) throw err;
+    console.log('Result: ' + result);
+  });
 
+  res.setHeader('Content-Type', 'application/json');
+  res.send('saved score for: ' + req.body.playerName);
 }
 
 /*exports.getCurrentScores = function(req, res){

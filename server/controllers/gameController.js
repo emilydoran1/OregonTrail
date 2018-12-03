@@ -29,8 +29,8 @@ function setRandomPlayerStatus(req, res){
 
   if(data.groupHealth <= 0 || data.playerStatus == [false,false,false,false,false]){
     data.playerStatus = [false,false,false,false,false];
-    data.messages.push('All players are dead.');
-    exports.reset(req, res);
+    data.messages.push('All players are dead. Game Over.');
+    //exports.reset(req, res);
   }
 
   return data.playerStatus;
@@ -48,7 +48,7 @@ function getNumAlive(){
 }
 
 //method to check if days on trail is < 45 and miles traveled is < 500
-function checkDaysAndMiles(req, res){
+/*function checkDaysAndMiles(req, res){
   if(data.daysOnTrail < 45 && data.milesTraveled < 500){
     data.daysOnTrail++;
   }
@@ -56,11 +56,12 @@ function checkDaysAndMiles(req, res){
     exports.reset(req, res);
   }
   return data.daysOnTrail;
-}
+}*/
 
 exports.nextDay = function(req, res){
-  checkDaysAndMiles(req, res);
+  //checkDaysAndMiles(req, res);
   data.currentWeather = weather.getRandomWeather();
+  data.daysOnTrail++;
   data.milesTraveled += (data.currentPace.miles * data.currentWeather.mileChange);
   data.groupHealth += (data.currentPace.healthChange + data.currentWeather.healthChange);
   data.playerStatus = setRandomPlayerStatus(req, res);
@@ -74,6 +75,9 @@ exports.reset = function(req, res){
   data.milesTraveled = 0;
   data.groupHealth = 100;
   data.playerStatus = [true, true, true, true, true];
+  data.currentWeather = weather.getRandomWeather();
+  data.currentTerrain = terrain.getRandomTerrain();
+  data.playerMoney = '1500';
   data.messages = [];
   res.setHeader('Content-Type', 'application/json');
 	res.send(data);
@@ -87,4 +91,9 @@ exports.setPace = function(req, res){
 
 exports.getGameData = function(){
   return data;
+}
+
+exports.getData = function(req, res){
+  res.setHeader('Content-Type', 'application/json');
+	res.send(data);
 }

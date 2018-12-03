@@ -19,6 +19,6 @@ function gameData(inPlayerNames, inplayerStatus, inplayerProfession,
 
 exports.addData = function(){
   var data = new gameData(['','','','',''],[true, true, true, true, true], '', 0,
-    '', 0, 100, pace.allPaces[0], 0, '', '', []);
+    '', 0, 100, pace.allPaces[0], '1500', 'Warm', 'Desert', []);
   return data;
 }
