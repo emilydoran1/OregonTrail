@@ -31,11 +31,17 @@ var topTenController = require('./controllers/topTenController');
 app.route('/api/topTen/topTen')
   .get(topTenController.getTopScores);
 
+app.route('/api/topTen/saveScore')
+  .post(topTenController.saveTopScore);
+
 
 var gameController = require('./controllers/gameController');
 
 app.route('/api/game/nextDay')
   .get(gameController.nextDay);
+
+app.route('/api/game/getData')
+  .get(gameController.getData);
 
 app.route('/api/game/reset')
   .get(gameController.reset);
@@ -61,5 +67,8 @@ app.route('/api/setup/savePlayerName/:id')
 
 app.route('/api/setup/saveStartMonth')
   .post(setupController.saveStartMonth);
+
+app.route('/api/setup/saveMoney')
+  .post(setupController.saveMoney);
 
 app.listen(port, () => console.log('OregonTrail is running!'));

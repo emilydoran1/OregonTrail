@@ -5,7 +5,7 @@ function blink_text() {
 
 setInterval(blink_text, 1000);
 
-var spacebarToContinue = document.getElementById('spacebarToContinue');
+var spacebarToContinue = document.getElementById('spacebarForMenu');
 spacebarToContinue.onclick = function(){
   location.href = '/mainmenu';
 }

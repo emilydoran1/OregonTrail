@@ -6,7 +6,7 @@ spacebarForMenu.onclick = function(){
   location.href = '/mainmenu';
 }
 
-var topScores = new Array();
+//var topScores = new Array();
 
 //constructor for Score objects
 function Score(name, score, date){
@@ -15,7 +15,21 @@ function Score(name, score, date){
   this.date = date;
 }
 
-function addScore(name, score, date){
+getTopTen();
+
+function getTopTen(){
+  fetch('/api/topTen/topTen').then(function(response) {
+    if (response.status !== 200) {
+      console.log('your request is not good.');
+    }
+    response.text().then(function(data) {
+		  console.log("here is the data: " + data);
+      printTopTen(data);
+    })
+  });
+}
+
+/*function addScore(name, score, date){
   var s = new Score(name, score, date);
   topScores.push(s);
 }
@@ -32,13 +46,14 @@ addScore('Karl', 7, '09/12/18');
 addScore('Kevin', 55, '07/31/16');
 addScore('Maria', 1, '01/2/2013');
 addScore('Ed', 200, '01/19/2016');
+*/
 
 function sort(array){
   var min;
   for (var i = 0; i < array.length; i++){
     max = i;
     for (var j = i+1; j < array.length; j++){
-      if (array[j].score > array[max].score){
+      if (array[j].playerScore > array[max].playerScore){
         max = j;
       }
     }
@@ -46,6 +61,7 @@ function sort(array){
       swap(array, i, max);
     }
   }
+  return array;
 }
 
 function swap(array, firstIndex, secondIndex){
@@ -54,29 +70,42 @@ function swap(array, firstIndex, secondIndex){
   array[secondIndex] = temp;
 }
 
-sort(topScores);
+//sort(topScores);
 
-printTopTen(topScores);
+//printTopTen(topScores);
 
 function printTopTen(array){
-  if(array.length > 10){
+  var jsonData = JSON.parse(array);
+  var topScores = [];
+
+  for(var x in jsonData){
+		topScores.push(jsonData[x]);
+	}
+
+  sort(topScores);
+
+  if(topScores.length > 10){
     for(var i = 0; i < 10; i++){
+      var currentScore = topScores[i];
+
       var nameId = 'name' + (i + 1);
       var scoreId = 'score' + (i + 1);
       var dateId = 'date' + (i + 1);
-      document.getElementById(nameId).innerHTML = array[i].name;
-      document.getElementById(scoreId).innerHTML = array[i].score;
-      document.getElementById(dateId).innerHTML = array[i].date;
+      document.getElementById(nameId).innerHTML = currentScore.playerName;
+      document.getElementById(scoreId).innerHTML = currentScore.playerScore;
+      document.getElementById(dateId).innerHTML = currentScore.playerDate;
     }
   }
   else{
-    for(var i = 0; i < array.length; i++){
+    for(var i = 0; i < topScores.length; i++){
+      var currentScore = topScores[i];
+
       var nameId = 'name' + (i + 1);
       var scoreId = 'score' + (i + 1);
       var dateId = 'date' + (i + 1);
-      document.getElementById(nameId).innerHTML = array[i].name;
-      document.getElementById(scoreId).innerHTML = array[i].score;
-      document.getElementById(dateId).innerHTML = array[i].date;
+      document.getElementById(nameId).innerHTML = currentScore.playerName;
+      document.getElementById(scoreId).innerHTML = currentScore.playerScore;
+      document.getElementById(dateId).innerHTML = currentScore.playerDate;
     }
   }
 }
