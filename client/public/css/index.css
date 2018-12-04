@@ -1,3 +1,4 @@
+/* background image */
 img{
   width: 80%;
   display: block;
@@ -5,10 +6,12 @@ img{
   margin-right: auto;
 }
 
+/* blinking text */
 h3{
   opacity: 0.75;
 }
 
+/* container for text */
 .titles{
   color: white;
   position: absolute;

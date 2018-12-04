@@ -17,13 +17,15 @@ function Score(name, score, date){
 
 getTopTen();
 
+//calls the get top ten method from topten controller to retreive the scores
 function getTopTen(){
   fetch('/api/topTen/topTen').then(function(response) {
     if (response.status !== 200) {
       console.log('your request is not good.');
     }
     response.text().then(function(data) {
-		  console.log("here is the data: " + data);
+		  // console.log("here is the data: " + data);
+      //calls method to print the scores
       printTopTen(data);
     })
   });
@@ -48,6 +50,7 @@ addScore('Maria', 1, '01/2/2013');
 addScore('Ed', 200, '01/19/2016');
 */
 
+//sorts the top ten
 function sort(array){
   var min;
   for (var i = 0; i < array.length; i++){
@@ -64,6 +67,7 @@ function sort(array){
   return array;
 }
 
+//part of sorting method
 function swap(array, firstIndex, secondIndex){
   var temp = array[firstIndex];
   array[firstIndex] = array[secondIndex];
@@ -74,6 +78,7 @@ function swap(array, firstIndex, secondIndex){
 
 //printTopTen(topScores);
 
+//function to print the top scores
 function printTopTen(array){
   var jsonData = JSON.parse(array);
   var topScores = [];
@@ -82,6 +87,7 @@ function printTopTen(array){
 		topScores.push(jsonData[x]);
 	}
 
+//calls sort
   sort(topScores);
 
   if(topScores.length > 10){
