@@ -2,18 +2,21 @@ var gameController = require('../controllers/gameController');
 
 var gameScreens = [];
 
+//get requested setup
 exports.getScreen = function(req, res){
   var gameScreen = gameScreens[req.params.id];
   res.setHeader('Content-Type', 'text/html');
 	res.send(gameScreen);
 }
 
+//save player profession
 exports.saveProfession = function(req, res){
   gameController.getGameData().playerProfession = req.body.profession;
 	res.setHeader('Content-Type', 'application/json');
 	res.send(gameController.getGameData().playerProfession);
 }
 
+//save player name
 exports.savePlayerName = function(req, res){
   var newName = req.body.name;
 	gameController.getGameData().playerNames[req.params.id] = newName;
@@ -21,18 +24,21 @@ exports.savePlayerName = function(req, res){
 	res.send(gameController.getGameData().playerNames);
 }
 
+//save start month
 exports.saveStartMonth = function(req, res){
 	gameController.getGameData().startMonth = req.body.month;
 	res.setHeader('Content-Type', 'application/json');
 	res.send(gameController.getGameData().startMonth);
 }
 
+//save player money
 exports.saveMoney = function(req, res){
 	gameController.getGameData().playerMoney = req.body.money;
 	res.setHeader('Content-Type', 'application/json');
 	res.send(gameController.getGameData().playerMoney);
 }
 
+//setup screen 1
 var startGame1 = "<ol>"
   + "<li id = \"banker\">Be a Banker From Boston</li>"
   + "<li id = \"carpenter\">Be a Carpenter From Ohio</li>"
@@ -42,6 +48,7 @@ var startGame1 = "<ol>"
   + "<br>"
   + "<div id=\"selectedOption\">What is your choice?</div>";
 
+//setup screen 2
 var startGame2 = "<p>What is the first name of the wagon leader?</p>"
   + "<form>"
   + "First Name: <input type = \"text\" name = \"name\" id = \"player1\">"
@@ -49,6 +56,7 @@ var startGame2 = "<p>What is the first name of the wagon leader?</p>"
   + "<br>"
   + "<button id = \"page2\">Next</button>";
 
+//setup screen 3
 var startGame3 = "<p>What are the first names of the other members of your party?</p>"
   + "<form>"
   + "Player Name: <input type = \"text\" name = \"name\" id = \"player2\">"
@@ -65,6 +73,7 @@ var startGame3 = "<p>What are the first names of the other members of your party
   + "<br>"
   + "<button id = \"page3\">Next</button>";
 
+//setup screen 4
 var startGame4 = "<p>It is 2018. Your jumping off place for oregon is Poughkeepsie,"
   + " New York. You must decide which month to leave. </p>"
   + "<ol>"
@@ -76,6 +85,7 @@ var startGame4 = "<p>It is 2018. Your jumping off place for oregon is Poughkeeps
   + "</ol>"
   + "<p>What is your choice?</p>";
 
+//setup screen 4
 var startGame5 = "<p>Congratulations! You are ready to start on your journey!</p>"
   + "<p>Here are the settings you selected for the game</p>"
   + "<span>Wagon Leader: </span>"
@@ -111,6 +121,7 @@ var startGame5 = "<p>Congratulations! You are ready to start on your journey!</p
 
   + "<b><p id = \"trail\">  Press the Space To Travel The Trail!</p></b>";
 
+//add all screens to the gameScreens array
 gameScreens.push(startGame1);
 gameScreens.push(startGame2);
 gameScreens.push(startGame3);

@@ -23,6 +23,7 @@ exports.getAllWeathers = function(){
   return(allWeathers);
 }
 
+//get a random weather based on each weather's probability
 exports.getRandomWeather = function(){
   var randNum = Math.floor((Math.random() * 100) + 1);
   var weather;

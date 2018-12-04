@@ -30,6 +30,7 @@ con.connect(function(err){
   });
 });
 
+//get the current top scores
 exports.getTopScores = function(req, res){
   var currentTopScores = [];
 
@@ -45,9 +46,9 @@ exports.getTopScores = function(req, res){
   })
 }
 
+
+//save a new top score to the top ten
 exports.saveTopScore = function(req, res){
-  // var sql = 'insert into topTen (playerName, playerScore, dateEarned) values '
-  //   + '(' + req.body.playerName + ',' + req.body.playerScore + ',' + req.body.dateEarned + ')';
   var sql = "Insert into topTen (playerName, playerScore, dateEarned) VALUES ('"+req.body.playerName+"','"+req.body.playerScore+"','"+req.body.dateEarned+"')";
   con.query(sql, function(err, result){
     if(err) throw err;
