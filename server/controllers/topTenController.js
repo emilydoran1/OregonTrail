@@ -48,8 +48,7 @@ exports.getTopScores = function(req, res){
 exports.saveTopScore = function(req, res){
   // var sql = 'insert into topTen (playerName, playerScore, dateEarned) values '
   //   + '(' + req.body.playerName + ',' + req.body.playerScore + ',' + req.body.dateEarned + ')';
-  var sql = 'insert into topTen (playerName, playerScore) values '
-    + '(' + req.body.playerName + ',' + req.body.playerScore + ')';
+  var sql = "Insert into topTen (playerName, playerScore, dateEarned) VALUES ('"+req.body.playerName+"','"+req.body.playerScore+"','"+req.body.dateEarned+"')";
   con.query(sql, function(err, result){
     if(err) throw err;
     console.log('Result: ' + result);
