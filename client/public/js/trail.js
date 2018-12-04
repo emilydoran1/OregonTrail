@@ -21,11 +21,11 @@ function nextDay() {
 
 var miles = 0;
 function checkDaysTraveled(data){
-  if(data.milesTraveled >= 500){
+  if(data.milesTraveled >= 500 && data.groupHealth >= 0){
     miles = data.milesTraveled;
     sendTopScore(data.playerNames[0], (data.groupHealth * (data.daysOnTrail) * 100));
     //paceBoxOpen = true;
-    data.messages.push('You Won!! Press ENTER to Play Again!');
+    data.messages.push('You Won!!');
     //resetGame();
   }
 }
@@ -88,6 +88,7 @@ function resetGame() {
   			console.log("game reset!");
         messages = 0;
         days = 0;
+        miles = 0;
         updateSettings(data);
         return data;
       });
@@ -229,14 +230,26 @@ function updateSettings(data) {
 }
 
 function sendTopScore(playerName, score) {
-	var topScore = {playerName: playerName, score: score};
+  var today = new Date();
+  var dd = today.getDate();
+  var mm = today.getMonth()+1; //January is month 0
+  var yyyy = today.getFullYear();
+  if(dd<10) {
+      dd = '0' + dd;
+  }
+  if(mm<10) {
+      mm = '0' + mm;
+  }
+  today = yyyy + '/' + mm + '/' + dd;
+
   fetch('/api/topTen/saveScore',
-	 {method: "post",
-		headers: {
+	 {
+     method: "post",
+		 headers: {
 	    'Accept': 'application/json',
 	    'Content-Type': 'application/json'
 	  },
-	  body: (topScore)
+	  body: '{"playerName": "' + playerName + '", "playerScore": "' + score + '", "dateEarned": "' + today +'"}'
 	})
 	.then(function(response) {
     if (response.status !== 200) {
@@ -244,7 +257,7 @@ function sendTopScore(playerName, score) {
       return;
     }
     response.json().then(function(data) {
-			console.log("Score sent!")
+			console.log("Score sent!");
       return data;
     });
   });
