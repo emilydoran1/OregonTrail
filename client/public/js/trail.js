@@ -30,7 +30,7 @@ function checkDaysTraveled(data){
     miles = data.milesTraveled;
     sendTopScore(data.playerNames[0], (data.groupHealth * (data.daysOnTrail) * 100));
     //paceBoxOpen = true;
-    data.messages.push('You Won!!');
+    data.messages.push('You Won and have been added to the Oregon Top Ten!! ');
     //resetGame();
   }
 }
@@ -299,10 +299,6 @@ function sendTopScore(playerName, score) {
       console.log('your request is not good.');
       return;
     }
-    response.json().then(function(data) {
-			console.log("Score sent!");
-      return data;
-    });
   });
 }
 

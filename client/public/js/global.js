@@ -13,6 +13,10 @@ function checkKeyPressed(e) {
     // sessionStorage.setItem("time", audio.currentTime)
     window.location.href = "/mainmenu";
   }
+  if (e.keyCode == "32" && (window.location.href == 'http://localhost:1337/setup')) {
+    sessionStorage.setItem("time", audio.currentTime);
+    window.location.href = "/trail";
+  }
 }
 
 function soundOn() {

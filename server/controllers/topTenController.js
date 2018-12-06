@@ -56,10 +56,5 @@ exports.saveTopScore = function(req, res){
   });
 
   res.setHeader('Content-Type', 'application/json');
-  res.send('saved score for: ' + req.body.playerName);
+  res.send(req.body.playerName);
 }
-
-/*exports.getCurrentScores = function(req, res){
-  res.setHeader('Content-Type', 'application/json');
-  res.send(exports.currentTopScores);
-}*/
