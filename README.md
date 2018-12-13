@@ -9,4 +9,5 @@
 
 ## Play Game
 1. `node server/oregonTrail.js` to start
-2. Begin Playing Game!
+2. Go to `localhost:1337` in browser
+3. Begin Playing Game!
