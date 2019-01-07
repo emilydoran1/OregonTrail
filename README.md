@@ -6,6 +6,7 @@
 3. Install mySQL https://dev.mysql.com/downloads/mysql/
 4. Run mySQL and create username and password
 5. Run `npm install`
+6. `npm install express`
 
 ## Play Game
 1. `node server/oregonTrail.js` to start
